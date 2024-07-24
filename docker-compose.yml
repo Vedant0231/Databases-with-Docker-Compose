@@ -1,0 +1,45 @@
+# services:
+#   postgres:
+#     image: postgres:latest
+#     container_name: my_postgres_db
+#     env_file:
+#       - .env
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+
+# volumes:
+#   postgres_data:
+
+# services:
+  # mysql:
+    # image: mysql:latest
+    # container_name: my_mysql_db
+    # env_file:
+      # - .env
+    # ports:
+      # - "3306:3306"
+    # volumes:
+      # - mysql_data:/var/lib/mysql
+# 
+# volumes:
+  # mysql_data:
+
+version: '3.7'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
+    driver: local
